@@ -1,0 +1,82 @@
+/* CSS Document */
+/*
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}*/
+
+.total_fojas {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+.totales {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	border-top:black 3px solid;
+}
+
+.totales_no_top {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+.totales_sep {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	border-left:black 3px solid;
+	border-top:black 3px solid;
+}
+
+.totales2 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	font-size:14px;
+}
+
+.totales2_sep {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	font-size:14px;
+	border-left:black 3px solid;
+}
+
+.totales2_normal {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+.totales2_normal_sep {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	border-left:black 3px solid;
+}
+
+.color1 {
+	background-color: #FF9C6C;
+	border: 1px solid #F97C00;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.color2 {
+	background-color: #96A0E9;
+	border: 1px solid #03F;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.color3 {
+	background-color: #F9D568;
+	border: 1px solid #F90;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.color4 {
+	background-color: rgb(95, 185, 115);
+	border: 1px solid rgba(13, 199, 59, 0.719);
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.separador {
+	border-left:black 3px solid;
+	border-top:black 3px solid;
+}

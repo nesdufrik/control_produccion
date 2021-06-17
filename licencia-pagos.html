@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sistema de Control Diario</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/funciones.js"></script>
+    <script>
+        navbar();
+    </script>
+</head>
+<body>
+    <div id="navbar"></div>  
+    <div class="container mt-4">
+        <h2>Solicitud de Habilitación de Pagos</h2>
+        <p class="mb-4">Registro de solicitudes para la habilitación del pago de licencias para conducir en los Bancos.</p>
+        <div class="table-responsive-sm">
+            <div id="mostrarDesconexion"></div>
+            <div class="modal fade" id="problemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">¿Que es lo que no funciona?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="contenidoproblemas">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="mb-4" id="solicitud" name="solicitud" method="POST" onsubmit="return limpiar('solicitud')">
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="user_ci">Cedula de identidad</label>
+                    <input type="text" class="form-control" id="user_ci" maxlength="10" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="user_complemento">Complemento</label>
+                    <input type="text" class="form-control text-uppercase" id="user_complemento" maxlength="2">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="user_nombre">Nombre completo</label>
+                    <input type="text" class="form-control text-uppercase" id="user_nombre" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="user_cel">Celular de contacto</label>
+                    <input type="text" class="form-control" id="user_cel" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="user_cat1">Categoria</label>
+                    <select id="user_cat1" class="form-control" required>
+                        <option value="" selected>Elegir...</option>
+                        <option value="A">CAT A</option>
+                        <option value="B">CAT B</option>
+                        <option value="C">CAT C</option>
+                        <option value="P">CAT P</option>
+                        <option value="M">CAT M</option>
+                        <option value="T">CAT T</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="user_tipo1">Tipo de tramite</label>
+                    <select id="user_tipo1" class="form-control" required>
+                        <option value="" selected>Elegir...</option>
+                        <option value="DUPLICADO">DUPLICADO</option>
+		                <option value="RENOVACION">RENOVACIÓN</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="user_exp1">Fecha expiración</label>
+                    <input type="date" class="form-control" id="user_exp1" value="" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <select id="user_cat2" class="form-control">
+                        <option value="" selected>Elegir...</option>
+                        <option value="A">CAT A</option>
+                        <option value="B">CAT B</option>
+                        <option value="C">CAT C</option>
+                        <option value="P">CAT P</option>
+                        <option value="M">CAT M</option>
+                        <option value="T">CAT T</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <select id="user_tipo2" class="form-control">
+                        <option value="" selected>Elegir...</option>
+                        <option value="DUPLICADO">DUPLICADO</option>
+		                <option value="RENOVACION">RENOVACIÓN</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="date" class="form-control" id="user_exp2" value="">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <select id="user_cat3" class="form-control">
+                        <option value="" selected>Elegir...</option>
+                        <option value="A">CAT A</option>
+                        <option value="B">CAT B</option>
+                        <option value="C">CAT C</option>
+                        <option value="P">CAT P</option>
+                        <option value="M">CAT M</option>
+                        <option value="T">CAT T</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <select id="user_tipo3" class="form-control">
+                        <option value="" selected>Elegir...</option>
+                        <option value="DUPLICADO">DUPLICADO</option>
+		                <option value="RENOVACION">RENOVACIÓN</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="date" class="form-control" id="user_exp3" value="">
+                </div>
+            </div>
+            <input type="submit" value="Solicitar..." class="btn btn-primary">
+        </form>
+        <div id="mostrardatos"></div>
+    </div>
+</body>
+</html>

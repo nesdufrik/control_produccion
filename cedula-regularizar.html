@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sistema de Control Diario</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/funciones.js"></script>
+    <script>
+        navbar();
+        listarCedula();
+    </script>
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="container mt-4">
+        <h2>Regularizar Cedulas</h2>
+        <p>
+            Regularización en el registro de Cedulas en fechas especificas.
+        </p>
+        <div class="table-responsive-sm">
+            <div id="mostrarDesconexion"></div>
+            <div class="modal fade" id="problemas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">¿Que es lo que no funciona?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="contenidoproblemas">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="input-group flex-nowrap mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="date-regularizar">Fecha para regularizar</span>
+            </div>
+            <input type="date" class="form-control" id="fecha" name="fecha" aria-label="Fecha" aria-describedby="date-regularizar" onchange="listarCedula(this.value);">
+        </div>
+        <form class="was-validated" id="form_cedula_regularizar" name="form_cedula_regularizar" method="post" onsubmit="return limpiar('form_cedula_regularizar');">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control" id="ci" placeholder="C.I." name="ci" required>
+                <select name="edad" id="edad" class="form-control form-control" required>
+                    <option value="">Tipo de Persona</option>
+                    <option value="MENOR1">Menor 1-11</option>
+                    <option value="MENOR2">Menor 12-17</option>
+                    <option value="ADULTO">Adulto</option>
+                    <option value="PcD">Con Discapacidad</option>
+                </select>
+                <select name="tipo" id="tipo" class="form-control form-control" required>
+                    <option value="">Tipo de Trámite</option>
+                    <option value="NUEVO">Nuevo</option>
+                    <option value="RENOVACION">Renovación</option>
+                    <option value="REPOSICION">Reposición</option>
+                    <option value="SOLICITANTE">Solicitante</option>
+                </select>
+                <select name="ra" id="ra" class="form-control form-control" required>
+                    <option value="">Jurídico</option>
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+                <select name="cultural" id="cultural" class="form-control form-control" required>
+                    <option value="">Identidad Cultural</option>
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>
+                <div class="input-group-append">
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                </div>
+            </div>
+        </form>
+        <div class="table-responsive-sm">
+            <div id="mostrardatos"></div>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Modificar Datos</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div id="mostrarModificar"></div>
+                </div>
+            </div>
+          </div>
+        <hr>
+        <div id="listarCedula"></div>
+    </div>
+</body>
+</html>
